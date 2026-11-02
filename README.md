@@ -53,33 +53,58 @@ The 100% figure reflects my reported assessment of Jira visibility. It is **not*
 
 **What the record alone might not fully convey:** The broader reasoning behind some technical discussions and how collaboration affects priorities; this is an area to keep evaluating even when Jira entries are complete.
 
-## Exercise 2 — Verify two high-value records
+## Exercise 2 — Two record-repair walkthroughs
 
-The lab asks for two missing or incomplete records to be repaired. **My audit did not find such records.** Rather than add misleading retrospective edits, I checked two relevant Jira records for the required information and preserved their existing state.
+### Actual audit outcome
 
-### Record 1 — External service failure investigation
+I checked two existing Jira records: an external service investigation and a pull request review. Both already contained sufficient context and conclusions. **No real Jira record needed modification (0 actual repairs; 2 records reviewed).**
 
-**Context:** Failures in a dependent service affected an integration and required investigation.
+To demonstrate how I would handle missing or partial signals, the following are **two hypothetical before-and-after repair examples** based on generalized backend work. They are educational samples, not claims that these Jira changes were carried out.
 
-**What I checked:** The existing Jira ticket contained the problem context, actions/investigation, and conclusions.
+### Simulation A — Repairing an incomplete external-service investigation ticket (P → V)
 
-**Result:** The record was already sufficiently clear and traceable for the responsible team. **No correction was necessary.** This does not imply that the external service's underlying defect was fixed.
+**Example before — partial ticket:**
 
-**Notes for the next reader:** Retain the documented failing-request context and the dependency on the responsible service team. Internal identifiers and request details are intentionally omitted here.
+> Title: Investigate GraphQL integration error  
+> Status: Done  
+> Comment: Checked backend issue.
 
-### Record 2 — Pull request review
+A reader cannot tell which dependency failed, what was investigated, whether the integration is functioning, or who owns the next action.
 
-**Context:** A code review contributed to verifying implementation changes and facilitating coordination.
+**Example after — proposed closing comment:**
 
-**What I checked:** The Jira record associated with the review contained sufficient context and conclusions.
+> **Context:** An external service required by a GraphQL integration returned errors, blocking completion of integration validation.  
+> **What I did:** Reproduced the failure, identified the affected request pattern, documented the observable responses, and shared a sanitized summary with the responsible team through the established channels. The fix to the external dependency was outside my scope.  
+> **Result:** The issue became actionable for the service owner: the failing interaction, integration impact, and dependency were recorded. The underlying external failure is **not claimed to be resolved**.  
+> **Notes for whoever is next:** Confirm the service-owner resolution and rerun the affected integration test in QA before declaring the integration unblocked. Keep internal request details in the restricted Jira ticket.
 
-**Result:** The review work was already understandable and visible. **No correction was necessary.**
+**Signal repaired in the simulation:** The ticket now distinguishes the investigation outcome from the unresolved external defect and names a clear follow-up. Its hypothetical visibility changes from **P to V**.
 
-**Notes for the next reader:** Continue recording material review findings and decisions in the related work item, especially when the review affects scope or follow-up work.
+### Simulation B — Repairing an unrecorded pull request review (X → V)
 
-### Repair outcome
+**Example before — missing record:**
 
-**0 records modified; 2 records verified.** This differs from the requested “two repaired records,” but is the accurate finding of the audit. No artificial defects, missing activities, or fabricated updates were introduced.
+> A substantive code review took place, but its findings and follow-up were only discussed in a temporary chat thread. The related ticket contains no trace of the review.
+
+**Example after — proposed comment on the related ticket:**
+
+> **Context:** A GraphQL resolver change required review to confirm that response behavior remained compatible with its consumers.  
+> **What I did:** Examined resolver behavior, considered duplicate backend calls and edge cases, and recorded review observations for the author. This is a hypothetical example; it does not assert that specific defects were found in the real PR.  
+> **Result:** The review and its rationale would become discoverable in the related Jira ticket, allowing the team to see what was assessed and what questions remain.  
+> **Notes for whoever is next:** Link the actual PR and its approved or requested changes in the restricted ticket. Confirm tests and any requested follow-ups before closure.
+
+**Signal repaired in the simulation:** A previously invisible review would have a durable, findable record. Its hypothetical visibility changes from **X to V**.
+
+### Evidence boundary
+
+| Measure | Actual sprint audit | Educational repair examples |
+| --- | --- | --- |
+| Jira records reviewed | 2 | Not applicable |
+| Jira records modified | 0 | 0 — examples only |
+| Reported sprint coverage | 100% estimated | Not included in real coverage |
+| Visibility changes | None required | Illustrative P → V and X → V |
+
+These examples show the **repair method** requested by the lab without inventing missing work, falsifying Jira history, or altering the declared coverage calculation.
 
 ## Exercise 3 — One routine, one question
 
@@ -100,7 +125,8 @@ The lab asks for two missing or incomplete records to be repaired. **My audit di
 - [x] Reconstructed the sprint with 12 activity lines and approximately 80 hours.
 - [x] Classified Jira visibility and calculated estimated time coverage.
 - [x] Reviewed potential leakage, including review work and meetings.
-- [x] Verified two high-value Jira records; neither required a repair.
+- [x] Verified two high-value Jira records; neither required an actual repair.
+- [x] Documented two clearly labeled educational record-repair examples.
 - [x] Defined a four-week routine with daily and weekly triggers.
 - [x] Asked my technical lead for feedback and documented the response.
 - [ ] Independently cross-checked each time allocation against calendar, message, and pull-request history (optional follow-up for greater precision).
